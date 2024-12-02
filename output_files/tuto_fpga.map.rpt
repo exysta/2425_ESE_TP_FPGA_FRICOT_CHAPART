@@ -1,5 +1,5 @@
 Analysis & Synthesis report for tuto_fpga
-Mon Dec  2 14:58:14 2024
+Mon Dec  2 15:25:39 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -14,9 +14,10 @@ Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. General Register Statistics
-  9. Post-Synthesis Netlist Statistics for Top Partition
- 10. Elapsed Time Per Partition
- 11. Analysis & Synthesis Messages
+  9. Inverted Register Statistics
+ 10. Post-Synthesis Netlist Statistics for Top Partition
+ 11. Elapsed Time Per Partition
+ 12. Analysis & Synthesis Messages
 
 
 
@@ -43,14 +44,14 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Mon Dec  2 14:58:14 2024          ;
+; Analysis & Synthesis Status     ; Successful - Mon Dec  2 15:25:39 2024          ;
 ; Quartus Prime Version           ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name                   ; tuto_fpga                                      ;
-; Top-level Entity Name           ; led_blink                                      ;
+; Top-level Entity Name           ; chenillard                                     ;
 ; Family                          ; Cyclone V                                      ;
 ; Logic utilization (in ALMs)     ; N/A                                            ;
-; Total registers                 ; 24                                             ;
-; Total pins                      ; 3                                              ;
+; Total registers                 ; 31                                             ;
+; Total pins                      ; 10                                             ;
 ; Total virtual pins              ; 0                                              ;
 ; Total block memory bits         ; 0                                              ;
 ; Total DSP Blocks                ; 0                                              ;
@@ -69,7 +70,7 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                                          ; Setting            ; Default Value      ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                          ; 5CSEBA6U23I7       ;                    ;
-; Top-level entity name                                                           ; led_blink          ; tuto_fpga          ;
+; Top-level entity name                                                           ; chenillard         ; tuto_fpga          ;
 ; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
 ; Use smart compilation                                                           ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
@@ -167,40 +168,40 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                  ;
-+----------------------------------+-----------------+-----------------+------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                           ; Library ;
-+----------------------------------+-----------------+-----------------+------------------------------------------------------------------------+---------+
-; led_blink.vhd                    ; yes             ; User VHDL File  ; /home/lucachap58/Desktop/2425_ESE_TP_FPGA_FRICOT_CHAPART/led_blink.vhd ;         ;
-+----------------------------------+-----------------+-----------------+------------------------------------------------------------------------+---------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                   ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                            ; Library ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------+---------+
+; chenillard.vhd                   ; yes             ; User VHDL File  ; /home/lucachap58/Desktop/2425_ESE_TP_FPGA_FRICOT_CHAPART/chenillard.vhd ;         ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------+---------+
 
 
-+-----------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary               ;
-+---------------------------------------------+-------------+
-; Resource                                    ; Usage       ;
-+---------------------------------------------+-------------+
-; Estimate of Logic utilization (ALMs needed) ; 16          ;
-;                                             ;             ;
-; Combinational ALUT usage for logic          ; 29          ;
-;     -- 7 input functions                    ; 0           ;
-;     -- 6 input functions                    ; 3           ;
-;     -- 5 input functions                    ; 3           ;
-;     -- 4 input functions                    ; 0           ;
-;     -- <=3 input functions                  ; 23          ;
-;                                             ;             ;
-; Dedicated logic registers                   ; 24          ;
-;                                             ;             ;
-; I/O pins                                    ; 3           ;
-;                                             ;             ;
-; Total DSP Blocks                            ; 0           ;
-;                                             ;             ;
-; Maximum fan-out node                        ; i_clk~input ;
-; Maximum fan-out                             ; 24          ;
-; Total fan-out                               ; 177         ;
-; Average fan-out                             ; 3.00        ;
-+---------------------------------------------+-------------+
++--------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary            ;
++---------------------------------------------+----------+
+; Resource                                    ; Usage    ;
++---------------------------------------------+----------+
+; Estimate of Logic utilization (ALMs needed) ; 18       ;
+;                                             ;          ;
+; Combinational ALUT usage for logic          ; 30       ;
+;     -- 7 input functions                    ; 0        ;
+;     -- 6 input functions                    ; 2        ;
+;     -- 5 input functions                    ; 3        ;
+;     -- 4 input functions                    ; 0        ;
+;     -- <=3 input functions                  ; 25       ;
+;                                             ;          ;
+; Dedicated logic registers                   ; 31       ;
+;                                             ;          ;
+; I/O pins                                    ; 10       ;
+;                                             ;          ;
+; Total DSP Blocks                            ; 0        ;
+;                                             ;          ;
+; Maximum fan-out node                        ; Equal0~4 ;
+; Maximum fan-out                             ; 31       ;
+; Total fan-out                               ; 216      ;
+; Average fan-out                             ; 2.67     ;
++---------------------------------------------+----------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -208,7 +209,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
-; |led_blink                 ; 29 (29)             ; 24 (24)                   ; 0                 ; 0          ; 3    ; 0            ; |led_blink          ; led_blink   ; work         ;
+; |chenillard                ; 30 (30)             ; 31 (31)                   ; 0                 ; 0          ; 10   ; 0            ; |chenillard         ; chenillard  ; work         ;
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -218,14 +219,24 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 24    ;
+; Total registers                              ; 31    ;
 ; Number of registers using Synchronous Clear  ; 23    ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 24    ;
+; Number of registers using Asynchronous Clear ; 31    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 8     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; r_led_vector[0]                        ; 2       ;
+; Total number of inverted registers = 1 ;         ;
++----------------------------------------+---------+
 
 
 +-----------------------------------------------------+
@@ -233,19 +244,20 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 24                          ;
-;     CLR               ; 1                           ;
+; arriav_ff             ; 31                          ;
 ;     CLR SCLR          ; 23                          ;
-; arriav_lcell_comb     ; 29                          ;
+;     ENA CLR           ; 8                           ;
+; arriav_lcell_comb     ; 31                          ;
 ;     arith             ; 23                          ;
 ;         1 data inputs ; 23                          ;
-;     normal            ; 6                           ;
+;     normal            ; 8                           ;
+;         1 data inputs ; 3                           ;
 ;         5 data inputs ; 3                           ;
-;         6 data inputs ; 3                           ;
-; boundary_port         ; 3                           ;
+;         6 data inputs ; 2                           ;
+; boundary_port         ; 10                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 3.20                        ;
-; Average LUT depth     ; 2.41                        ;
+; Average LUT depth     ; 2.18                        ;
 +-----------------------+-----------------------------+
 
 
@@ -264,7 +276,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
-    Info: Processing started: Mon Dec  2 14:58:07 2024
+    Info: Processing started: Mon Dec  2 15:25:32 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off tuto_fpga -c tuto_fpga
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -274,17 +286,20 @@ Info (12021): Found 2 design units, including 1 entities, in source file led_bli
 Info (12021): Found 2 design units, including 1 entities, in source file tuto_fpga.vhd
     Info (12022): Found design unit 1: tuto_fpga-rtl File: /home/lucachap58/Desktop/2425_ESE_TP_FPGA_FRICOT_CHAPART/tuto_fpga.vhd Line: 11
     Info (12023): Found entity 1: tuto_fpga File: /home/lucachap58/Desktop/2425_ESE_TP_FPGA_FRICOT_CHAPART/tuto_fpga.vhd Line: 4
-Info (12127): Elaborating entity "led_blink" for the top level hierarchy
+Info (12021): Found 2 design units, including 1 entities, in source file chenillard.vhd
+    Info (12022): Found design unit 1: chenillard-rtl File: /home/lucachap58/Desktop/2425_ESE_TP_FPGA_FRICOT_CHAPART/chenillard.vhd Line: 12
+    Info (12023): Found entity 1: chenillard File: /home/lucachap58/Desktop/2425_ESE_TP_FPGA_FRICOT_CHAPART/chenillard.vhd Line: 4
+Info (12127): Elaborating entity "chenillard" for the top level hierarchy
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 32 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 46 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
-    Info (21059): Implemented 1 output pins
-    Info (21061): Implemented 29 logic cells
+    Info (21059): Implemented 8 output pins
+    Info (21061): Implemented 36 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 477 megabytes
-    Info: Processing ended: Mon Dec  2 14:58:14 2024
+    Info: Peak virtual memory: 475 megabytes
+    Info: Processing ended: Mon Dec  2 15:25:39 2024
     Info: Elapsed time: 00:00:07
     Info: Total CPU time (on all processors): 00:00:18
 

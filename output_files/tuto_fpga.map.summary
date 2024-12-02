@@ -1,11 +1,11 @@
-Analysis & Synthesis Status : Successful - Mon Dec  2 14:58:14 2024
+Analysis & Synthesis Status : Successful - Mon Dec  2 15:25:39 2024
 Quartus Prime Version : 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 Revision Name : tuto_fpga
-Top-level Entity Name : led_blink
+Top-level Entity Name : chenillard
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 24
-Total pins : 3
+Total registers : 31
+Total pins : 10
 Total virtual pins : 0
 Total block memory bits : 0
 Total DSP Blocks : 0

@@ -1,5 +1,12 @@
-|led_blink
-i_clk => r_led_enable.CLK
+|chenillard
+i_clk => r_led_vector[0].CLK
+i_clk => r_led_vector[1].CLK
+i_clk => r_led_vector[2].CLK
+i_clk => r_led_vector[3].CLK
+i_clk => r_led_vector[4].CLK
+i_clk => r_led_vector[5].CLK
+i_clk => r_led_vector[6].CLK
+i_clk => r_led_vector[7].CLK
 i_clk => counter[0].CLK
 i_clk => counter[1].CLK
 i_clk => counter[2].CLK
@@ -23,7 +30,14 @@ i_clk => counter[19].CLK
 i_clk => counter[20].CLK
 i_clk => counter[21].CLK
 i_clk => counter[22].CLK
-i_rst_n => r_led_enable.ACLR
+i_rst_n => r_led_vector[0].PRESET
+i_rst_n => r_led_vector[1].ACLR
+i_rst_n => r_led_vector[2].ACLR
+i_rst_n => r_led_vector[3].ACLR
+i_rst_n => r_led_vector[4].ACLR
+i_rst_n => r_led_vector[5].ACLR
+i_rst_n => r_led_vector[6].ACLR
+i_rst_n => r_led_vector[7].ACLR
 i_rst_n => counter[0].ACLR
 i_rst_n => counter[1].ACLR
 i_rst_n => counter[2].ACLR
@@ -47,6 +61,13 @@ i_rst_n => counter[19].ACLR
 i_rst_n => counter[20].ACLR
 i_rst_n => counter[21].ACLR
 i_rst_n => counter[22].ACLR
-o_led <= r_led_enable.DB_MAX_OUTPUT_PORT_TYPE
+o_led[0] << r_led_vector[0].DB_MAX_OUTPUT_PORT_TYPE
+o_led[1] << r_led_vector[1].DB_MAX_OUTPUT_PORT_TYPE
+o_led[2] << r_led_vector[2].DB_MAX_OUTPUT_PORT_TYPE
+o_led[3] << r_led_vector[3].DB_MAX_OUTPUT_PORT_TYPE
+o_led[4] << r_led_vector[4].DB_MAX_OUTPUT_PORT_TYPE
+o_led[5] << r_led_vector[5].DB_MAX_OUTPUT_PORT_TYPE
+o_led[6] << r_led_vector[6].DB_MAX_OUTPUT_PORT_TYPE
+o_led[7] << r_led_vector[7].DB_MAX_OUTPUT_PORT_TYPE
 
 

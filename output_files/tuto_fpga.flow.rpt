@@ -1,5 +1,5 @@
 Flow report for tuto_fpga
-Mon Dec  2 14:58:51 2024
+Mon Dec  2 15:26:17 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -41,16 +41,16 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +---------------------------------+------------------------------------------------+
-; Flow Status                     ; Successful - Mon Dec  2 14:58:51 2024          ;
+; Flow Status                     ; Successful - Mon Dec  2 15:26:17 2024          ;
 ; Quartus Prime Version           ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name                   ; tuto_fpga                                      ;
-; Top-level Entity Name           ; led_blink                                      ;
+; Top-level Entity Name           ; chenillard                                     ;
 ; Family                          ; Cyclone V                                      ;
 ; Device                          ; 5CSEBA6U23I7                                   ;
 ; Timing Models                   ; Final                                          ;
-; Logic utilization (in ALMs)     ; 18 / 41,910 ( < 1 % )                          ;
-; Total registers                 ; 25                                             ;
-; Total pins                      ; 3 / 314 ( < 1 % )                              ;
+; Logic utilization (in ALMs)     ; 17 / 41,910 ( < 1 % )                          ;
+; Total registers                 ; 35                                             ;
+; Total pins                      ; 10 / 314 ( 3 % )                               ;
 ; Total virtual pins              ; 0                                              ;
 ; Total block memory bits         ; 0 / 5,662,720 ( 0 % )                          ;
 ; Total DSP Blocks                ; 0 / 112 ( 0 % )                                ;
@@ -68,7 +68,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 12/02/2024 14:58:08 ;
+; Start date & time ; 12/02/2024 15:25:32 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; tuto_fpga           ;
 +-------------------+---------------------+
@@ -79,7 +79,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id                        ;
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID               ; 167746771887002.173314788743430        ; --            ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID               ; 167746771887002.173314953247085        ; --            ; --          ; --                                ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_boundary_scan    ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_signal_integrity ;
@@ -89,13 +89,13 @@ https://fpgasoftware.intel.com/eula.
 ; EDA_TIME_SCALE                      ; 1 ps                                   ; --            ; --          ; eda_simulation                    ;
 ; MAX_CORE_JUNCTION_TEMP              ; 100                                    ; --            ; --          ; --                                ;
 ; MIN_CORE_JUNCTION_TEMP              ; -40                                    ; --            ; --          ; --                                ;
-; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; led_blink   ; Top                               ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; led_blink   ; Top                               ;
-; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; led_blink   ; Top                               ;
+; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; chenillard  ; Top                               ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; chenillard  ; Top                               ;
+; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; chenillard  ; Top                               ;
 ; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                    ; --            ; --          ; --                                ;
 ; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --          ; --                                ;
 ; PROJECT_OUTPUT_DIRECTORY            ; output_files                           ; --            ; --          ; --                                ;
-; TOP_LEVEL_ENTITY                    ; led_blink                              ; tuto_fpga     ; --          ; --                                ;
+; TOP_LEVEL_ENTITY                    ; chenillard                             ; tuto_fpga     ; --          ; --                                ;
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
 
 
@@ -104,12 +104,12 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:07     ; 1.0                     ; 468 MB              ; 00:00:18                           ;
-; Fitter               ; 00:00:24     ; 1.0                     ; 1802 MB             ; 00:00:41                           ;
-; Assembler            ; 00:00:05     ; 1.0                     ; 518 MB              ; 00:00:05                           ;
-; Timing Analyzer      ; 00:00:04     ; 1.0                     ; 848 MB              ; 00:00:04                           ;
-; EDA Netlist Writer   ; 00:00:00     ; 1.0                     ; 663 MB              ; 00:00:01                           ;
-; Total                ; 00:00:40     ; --                      ; --                  ; 00:01:09                           ;
+; Analysis & Synthesis ; 00:00:07     ; 1.0                     ; 467 MB              ; 00:00:18                           ;
+; Fitter               ; 00:00:24     ; 1.0                     ; 1809 MB             ; 00:00:42                           ;
+; Assembler            ; 00:00:05     ; 1.0                     ; 515 MB              ; 00:00:05                           ;
+; Timing Analyzer      ; 00:00:04     ; 1.0                     ; 852 MB              ; 00:00:04                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 669 MB              ; 00:00:01                           ;
+; Total                ; 00:00:41     ; --                      ; --                  ; 00:01:10                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

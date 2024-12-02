@@ -3,8 +3,8 @@ use ieee.std_logic_1164.all;
 
 entity tuto_fpga is
 	port (
-		sw : in std_logic;
-		led : out std_logic
+		sw : in std_logic_vector(3 downto 0);
+		led : out std_logic_vector(3 downto 0)
 	);
 end entity tuto_fpga;
 

@@ -1,11 +1,11 @@
-Analysis & Synthesis Status : Successful - Mon Dec  2 14:04:24 2024
+Analysis & Synthesis Status : Successful - Mon Dec  2 14:18:34 2024
 Quartus Prime Version : 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 Revision Name : tuto_fpga
 Top-level Entity Name : tuto_fpga
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
 Total registers : 0
-Total pins : 2
+Total pins : 8
 Total virtual pins : 0
 Total block memory bits : 0
 Total DSP Blocks : 0

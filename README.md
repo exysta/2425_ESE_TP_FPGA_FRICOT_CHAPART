@@ -27,6 +27,6 @@ Avec l'architecture suivante nous obtenons la simulation ci-dessous :
 
 ![image](https://github.com/user-attachments/assets/a7688d4d-5314-4c54-b57e-caff2b8f9330)
 
-![image](https://github.com/user-attachments/assets/ae89187d-1748-4b48-ab44-de0c51a02783)
+![image](https://github.com/user-attachments/assets/c73680b1-bccb-4e28-8318-2fc6dfcd92c5)
 
 On observe bien que lorsque le reset est à 1, o_hdmi_hs s'incrémente correctement. Lorsque le rest est à 0, o_hdmi_hs reste nul.

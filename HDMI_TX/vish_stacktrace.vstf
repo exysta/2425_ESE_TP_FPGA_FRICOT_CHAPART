@@ -1,0 +1,13 @@
+# Current time Thu Dec 12 08:33:12 2024
+# ModelSim - Intel FPGA Edition Stack Trace
+# Program = vish
+# Id = "2020.1"
+# Version = "2020.02"
+# Date = "Feb 28 2020"
+# Platform = "linuxaloem"
+# 0    0x082a849a: 'tree_destroy + 0xa' in '/opt/intelFPGA/20.1/modelsim_ase/linuxaloem/vish'
+# 1    0x082b374b: '<unknown (@0x82b374b)>'
+# 2    0x082b3a30: 'treew_TreeCmd + 0x2a0' in '/opt/intelFPGA/20.1/modelsim_ase/linuxaloem/vish'
+# 3    0x0857ec8b: 'TclInvokeStringCommand + 0x7b' in '/opt/intelFPGA/20.1/modelsim_ase/linuxaloem/vish'
+# 4    0x0b789593: '<unknown (@0xb789593)>'
+# 5    0x0bdb5cbb: '<unknown (@0xbdb5cbb)>'

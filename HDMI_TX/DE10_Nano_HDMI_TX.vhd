@@ -81,7 +81,7 @@ architecture rtl of DE10_Nano_HDMI_TX is
 	
 	signal H_x_counter     : natural range 0 to (h_res - 1);
 	signal H_y_counter     : natural range 0 to (v_res - 1);
-	signal s_addr_a : natural range 0 to mem_size-1 := 0;
+	signal s_o_pixel : natural range 0 to mem_size-1 := 0;
 	signal s_addr_b : natural range 0 to mem_size-1 := 0;
 	signal s_q_a : std_logic_vector(data_width-1 downto 0);
 begin
@@ -102,13 +102,14 @@ begin
 			i_clk_b => vpg_pclk,
 			i_data_a => (others => '0'),
 			i_data_b => (others => '0'),
-			i_addr_a => s_addr_a,
+			i_addr_a => s_o_pixel,
 			i_addr_b => s_addr_b,
 			i_we_a => '0',
 			i_we_b => '0',
 			o_q_a  => s_q_a,
          o_q_b  => open	
-		);	
+		);
+	s_o_pixel <= H_x_counter	+ 95 * H_y_counter;
 	-- Generates the signals for HDMI IC
 	-- Gives an address for the frame buffer
 	-- Or x/y coordinates for the sprite generator
@@ -142,6 +143,7 @@ begin
 	 
 process(vpg_pclk)
 begin
+
 	if (H_x_counter >= 0 and H_x_counter < 94) and (H_y_counter >=0 and H_y_counter < 94) then
 
             -- Envoyer les données du pixel à HDMI_TX_D

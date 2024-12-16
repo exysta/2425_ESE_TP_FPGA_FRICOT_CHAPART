@@ -10,11 +10,11 @@ z2
 cModel Technology
 Z0 d/home/lucachap58/Desktop/2425_ESE_TP_FPGA_FRICOT_CHAPART/HDMI_TX
 Ehdmi_generator
-Z1 w1734354615
+Z1 w1734364251
 Z2 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
 Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z4 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
-!i122 97
+!i122 153
 R0
 Z5 8hdmi_generator.vhd
 Z6 Fhdmi_generator.vhd
@@ -24,9 +24,9 @@ VWP@mk`Am]k09zW^z7GF9S1
 !s100 `LkTKTiT^I_=<@0O:D2P;0
 Z7 OV;C;2020.1;71
 32
-Z8 !s110 1734354619
+Z8 !s110 1734364254
 !i10b 1
-Z9 !s108 1734354619.000000
+Z9 !s108 1734364254.000000
 Z10 !s90 -reportprogress|300|hdmi_generator.vhd|
 Z11 !s107 hdmi_generator.vhd|
 !i113 1
@@ -36,11 +36,11 @@ R2
 R3
 R4
 Z13 DEx4 work 14 hdmi_generator 0 22 WP@mk`Am]k09zW^z7GF9S1
-!i122 97
+!i122 153
 l58
-L36 84
-V_kTNTfPcjl3;YG9LdcVX62
-!s100 b8@DZAfl@iR=K2Ve]z:NF2
+L36 125
+VIXEAeNiMUo]Q@R3Tz:hJ21
+!s100 13CYzA1AW[C<>Kfh1QeCH1
 R7
 32
 R8
@@ -50,14 +50,55 @@ R10
 R11
 !i113 1
 R12
-Ehdmi_generator_tb
-Z14 w1734353895
+Ehdmi_generator_fiack
+Z14 w1734363980
+R2
 R3
 R4
-!i122 98
+!i122 150
 R0
-Z15 8hdmi_generator_tb.vhd
-Z16 Fhdmi_generator_tb.vhd
+Z15 8hdmi_generator_fiack.vhd
+Z16 Fhdmi_generator_fiack.vhd
+l0
+L5 1
+VHDVG^hizWHM7Bn8DJOZ[C2
+!s100 6OQ:@l2T[bKMdGjE5=TRF1
+R7
+32
+Z17 !s110 1734363997
+!i10b 1
+Z18 !s108 1734363997.000000
+Z19 !s90 -reportprogress|300|hdmi_generator_fiack.vhd|
+Z20 !s107 hdmi_generator_fiack.vhd|
+!i113 1
+R12
+Artl
+R2
+R3
+R4
+Z21 DEx4 work 20 hdmi_generator_fiack 0 22 HDVG^hizWHM7Bn8DJOZ[C2
+!i122 150
+l56
+L36 126
+VRlSC^QJzi6`:JZAibfJP42
+!s100 lE=ZWT>F<X<[BZXJoHR_M0
+R7
+32
+R17
+!i10b 1
+R18
+R19
+R20
+!i113 1
+R12
+Ehdmi_generator_tb
+Z22 w1734364208
+R3
+R4
+!i122 154
+R0
+Z23 8hdmi_generator_tb.vhd
+Z24 Fhdmi_generator_tb.vhd
 l0
 L4 1
 V<IZznT[<0m[ggYdmMNH983
@@ -67,8 +108,8 @@ R7
 R8
 !i10b 1
 R9
-Z17 !s90 -reportprogress|300|hdmi_generator_tb.vhd|
-Z18 !s107 hdmi_generator_tb.vhd|
+Z25 !s90 -reportprogress|300|hdmi_generator_tb.vhd|
+Z26 !s107 hdmi_generator_tb.vhd|
 !i113 1
 R12
 Atb
@@ -76,18 +117,18 @@ R2
 R13
 R3
 R4
-Z19 DEx4 work 17 hdmi_generator_tb 0 22 <IZznT[<0m[ggYdmMNH983
-!i122 98
+Z27 DEx4 work 17 hdmi_generator_tb 0 22 <IZznT[<0m[ggYdmMNH983
+!i122 154
 l34
-Z20 L7 76
-Z21 VTLSmE29QhE3VYjDG2E>Z]0
-Z22 !s100 BAQPkU[jAh1=LlbP^RdbD2
+Z28 L7 76
+VTLSmE29QhE3VYjDG2E>Z]0
+!s100 BAQPkU[jAh1=LlbP^RdbD2
 R7
 32
 R8
 !i10b 1
 R9
-R17
-R18
+R25
+R26
 !i113 1
 R12

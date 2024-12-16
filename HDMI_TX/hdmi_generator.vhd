@@ -35,21 +35,21 @@ end hdmi_generator;
 
 architecture rtl of hdmi_generator is
     -- Horizontal total pixels
-    constant c_h_total : natural := h_res + h_fp + h_sync + h_bp - 1;
+    constant c_h_total : natural := h_res + h_fp + h_sync + h_bp ;
 	 -- Vertical total pixels
-    constant c_v_total : natural := v_res + v_fp + v_sync + v_bp - 1;
+    constant c_v_total : natural := v_res + v_fp + v_sync + v_bp ;
 
     -- Horizontal counter
     signal s_h_count : natural range 0 to c_h_total := 0;
 	 -- Vertical counter
     signal s_v_count : natural range 0 to c_v_total := 0;
 	 -- Indicate if we are in the Horizontal active pixel zone
-	 signal s_h_act : std_logic := '0';
+	 signal s_h_act : std_logic;
 	 -- Indicate if we are in the Vertical active pixel zone
-	 signal s_v_act : std_logic := '0';
+	 signal s_v_act : std_logic;
 	 
 	 -- Counter for the pixel in the active zone
-	 signal r_pixel_counter : natural range 0 to (h_res * v_res - 1)  := 0;
+	 signal r_pixel_counter : natural range 0 to ((h_res * v_res) - 1)  := 0;
 	 -- Counter for the pixel in the horizontal active zone
 	 signal r_pixel_h_counter : natural range 0 to (h_res  - 1)  := 0;
 	 -- Counter for the pixel in the vectial active zone
@@ -65,6 +65,10 @@ begin
         r_pixel_h_counter <= 0; -- Reset pixel counters
         r_pixel_v_counter <= 0;
         r_pixel_counter <= 0;
+		  o_hdmi_hs    <= '1';
+		  o_hdmi_vs    <= '1';
+		  o_hdmi_de <= '0';
+
     elsif (rising_edge(i_clk)) then
         if (s_h_count = c_h_total) then
             s_h_count <= 0; -- Reset at the end of horizontal line
@@ -72,48 +76,85 @@ begin
                 s_v_count <= 0; -- Reset at the end of vertical line
             else
                 s_v_count <= s_v_count + 1; -- Increment vertical counter
-                if ((v_sync + v_bp < s_v_count + 1) and (s_v_count - 1 < c_v_total - v_fp)) then
-                    s_v_act <= '1';
-                else
-                    s_v_act <= '0';
-                end if;
+					if (v_sync + v_fp = s_v_count ) then
+						 s_v_act <= '1';
+					elsif (s_v_count = v_sync + v_fp + v_res) then
+						 s_v_act <= '0';
+					end if;
+					
             end if;
         else
             s_h_count <= s_h_count + 1; -- Increment horizontal counter
-            if ((h_sync + h_bp < s_h_count + 1) and (s_h_count - 1 < c_h_total - h_fp)) then
+            if (h_sync + h_fp = s_h_count ) then
                 s_h_act <= '1';
-            else
+            elsif (s_h_count = h_sync + h_fp + h_res) then
                 s_h_act <= '0';
             end if;
         end if;
-
+			
+		  --HS and VS logic
+			if ((s_h_count >= h_sync) and (s_h_count /= c_h_total)) then
+				o_hdmi_hs <= '1';
+			else
+				o_hdmi_hs <= '0';
+			end if;
+			
+			if ((s_v_count >= v_sync) and (s_v_count /= c_v_total)) then
+				o_hdmi_vs <= '1';
+			else
+				o_hdmi_vs <= '0';
+			end if;
+			
         -- Pixel counter logic
-        if (r_pixel_h_counter = h_res - 1) then
-            r_pixel_h_counter <= 0;
-        elsif (s_h_act = '1' and s_v_act = '1') then
-            r_pixel_h_counter <= r_pixel_h_counter + 1;
-        end if;
+		  if ((s_v_act = '1') and (s_h_act = '1')) then
+		  
+			  if (r_pixel_h_counter = h_res - 1) then
+					r_pixel_h_counter <= 0;
+					if (r_pixel_h_counter = h_res - 1) then
+						r_pixel_h_counter <= 0;
+						
+						if (r_pixel_v_counter = v_res -1) then
+							r_pixel_v_counter <= 0;
+						else
+							r_pixel_v_counter <= r_pixel_v_counter + 1;
+						end if;
+					else
+						r_pixel_h_counter <= r_pixel_h_counter + 1;
+					end if;
+			end if;
+			-- absolute pixel counter
+			if (r_pixel_counter = h_res * v_res - 1) then
+				r_pixel_counter <= 0;
+			else
+				r_pixel_counter <= r_pixel_counter + 1;
+			end if;			
+	    end if;		
+		 
+--				if (r_pixel_h_counter = h_res - 1) then
+--					r_pixel_h_counter <= 0;	
+--			  elsif (s_h_act = '1' and s_v_act = '1') then
+--					r_pixel_h_counter <= r_pixel_h_counter + 1;
+--			  end if;
+--	
+--			  if (r_pixel_v_counter = v_res - 1) then
+--					r_pixel_v_counter <= 0;
+--			  elsif (s_h_act = '1' and s_v_act = '1') then
+--					r_pixel_v_counter <= r_pixel_v_counter + 1;
+--			  end if;
+--	
+--			  if (r_pixel_counter = h_res * v_res - 1) then
+--					r_pixel_counter <= 0; -- Reset pixel counter
+--			  elsif (s_h_act = '1' and s_v_act = '1') then
+--					r_pixel_counter <= r_pixel_counter + 1; -- Increment pixel counter
+--			  end if;
+		o_hdmi_de <= s_v_act and s_h_act;
 
-        if (r_pixel_v_counter = v_res - 1) then
-            r_pixel_v_counter <= 0;
-        elsif (s_h_act = '1' and s_v_act = '1') then
-            r_pixel_v_counter <= r_pixel_v_counter + 1;
-        end if;
-
-        if (r_pixel_counter = h_res * v_res - 1) then
-            r_pixel_counter <= 0; -- Reset pixel counter
-        elsif (s_h_act = '1' and s_v_act = '1') then
-            r_pixel_counter <= r_pixel_counter + 1; -- Increment pixel counter
-        end if;
     end if;
-end process;
-
-    -- Horizontal sync signal
-    o_hdmi_hs <= '1' when s_h_count = c_h_total else '0';
-	 -- Vertical sync signal
-    o_hdmi_vs <= '1' when s_v_count = c_v_total else '0';
-	 -- indicate if we are in the active pixel zone or not
-	 o_hdmi_de <= '1' when (s_h_act = '1') and  (s_v_act = '1')  else '0';
-	 
+end process;	 
+	 o_x_counter <= r_pixel_h_counter;
+	 o_y_counter <= r_pixel_v_counter;
+	 o_pixel_en <= '1' when (s_v_act = '1') and (s_h_act = '1') else '0';
 	 o_pixel_address <= r_pixel_counter;
+	 o_new_frame <= '1' when (r_pixel_counter = h_res * v_res - 1) else '0';
+
 end architecture rtl;

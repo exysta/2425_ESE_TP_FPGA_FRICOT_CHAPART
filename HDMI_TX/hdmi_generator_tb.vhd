@@ -73,7 +73,7 @@ begin
 	i_reset_n <= '0';
 	wait for 50 us;
 	i_reset_n <= '1';
-	wait for 10000 us;
+	wait for 1000 us;
 	finished <= true;
 	wait;
 	end process;

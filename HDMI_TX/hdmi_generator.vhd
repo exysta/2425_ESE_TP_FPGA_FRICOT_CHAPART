@@ -56,57 +56,58 @@ architecture rtl of hdmi_generator is
 	 signal r_pixel_v_counter : natural range 0 to ( v_res - 1)  := 0;
 
 begin
-    -- Horizontal counter process
-    process(i_clk, i_reset_n)
-    begin
-        if (i_reset_n = '0') then
-            s_h_count <= 0; -- Reset horizontal counter
-				s_v_count <= 0; -- Reset vertical counter
-
-        elsif (rising_edge(i_clk)) then
-            if (s_h_count = c_h_total) then
-                s_h_count <= 0; -- Reset at the end of horizontal line
-					 
---					 --Quand il a fini la ligne courante, le compteur horizontal est reset et le compteur vertical s'incrémente
-					if (s_v_count = c_v_total) then
-						 s_v_count <= 0; -- Reset at the end of vertical line
-					else
-						 s_v_count <= s_v_count + 1; -- Increment vertical counter
-						 if(  (v_sync + v_bp < s_v_count + 1) and (s_v_count - 1 < c_v_total - v_fp)) then
-							s_v_act <= '1';
-						 else
-							s_v_act <= '0';
-						 end if;
-					end if;
-					
+-- Horizontal counter process
+process(i_clk, i_reset_n)
+begin
+    if (i_reset_n = '0') then
+        s_h_count <= 0; -- Reset horizontal counter
+        s_v_count <= 0; -- Reset vertical counter
+        r_pixel_h_counter <= 0; -- Reset pixel counters
+        r_pixel_v_counter <= 0;
+        r_pixel_counter <= 0;
+    elsif (rising_edge(i_clk)) then
+        if (s_h_count = c_h_total) then
+            s_h_count <= 0; -- Reset at the end of horizontal line
+            if (s_v_count = c_v_total) then
+                s_v_count <= 0; -- Reset at the end of vertical line
             else
-                s_h_count <= s_h_count + 1; -- Increment horizontal counter
-					 if(  (h_sync + h_bp < s_h_count + 1) and (s_h_count - 1 < c_h_total -  h_fp)) then
-						s_h_act <= '1';
-					 else
-						s_h_act <= '0';
-					 end if;
+                s_v_count <= s_v_count + 1; -- Increment vertical counter
+                if ((v_sync + v_bp < s_v_count + 1) and (s_v_count - 1 < c_v_total - v_fp)) then
+                    s_v_act <= '1';
+                else
+                    s_v_act <= '0';
+                end if;
             end if;
-				
-				-- Pixel counter logic
-				if(r_pixel_h_counter = h_res - 1) then
-					r_pixel_h_counter <= '0';
-				elsif ((s_h_act = '1') and (s_v_act = '1')) then
-					r_pixel_h_counter <= '1';
+        else
+            s_h_count <= s_h_count + 1; -- Increment horizontal counter
+            if ((h_sync + h_bp < s_h_count + 1) and (s_h_count - 1 < c_h_total - h_fp)) then
+                s_h_act <= '1';
+            else
+                s_h_act <= '0';
+            end if;
+        end if;
 
-				if(r_pixel_v_counter = v_res - 1) then
-					r_pixel_v_counter <= '0';
-				elsif ((s_h_act = '1') and (s_v_act = '1')) then
-					r_pixel_v_counter <= '1';
-					
-			   if (r_pixel_counter = h_res * v_res - 1) then
-					r_pixel_counter <= 0; -- Reset pixel counter
-			   elsif ((s_h_act = '1') and (s_v_act = '1')) then
-					r_pixel_counter <= r_pixel_counter + 1; -- Increment pixel counter
-			   end if;
-		  
-		end if;
-    end process;
+        -- Pixel counter logic
+        if (r_pixel_h_counter = h_res - 1) then
+            r_pixel_h_counter <= 0;
+        elsif (s_h_act = '1' and s_v_act = '1') then
+            r_pixel_h_counter <= r_pixel_h_counter + 1;
+        end if;
+
+        if (r_pixel_v_counter = v_res - 1) then
+            r_pixel_v_counter <= 0;
+        elsif (s_h_act = '1' and s_v_act = '1') then
+            r_pixel_v_counter <= r_pixel_v_counter + 1;
+        end if;
+
+        if (r_pixel_counter = h_res * v_res - 1) then
+            r_pixel_counter <= 0; -- Reset pixel counter
+        elsif (s_h_act = '1' and s_v_act = '1') then
+            r_pixel_counter <= r_pixel_counter + 1; -- Increment pixel counter
+        end if;
+    end if;
+end process;
+
     -- Horizontal sync signal
     o_hdmi_hs <= '1' when s_h_count = c_h_total else '0';
 	 -- Vertical sync signal

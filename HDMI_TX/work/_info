@@ -10,11 +10,11 @@ z2
 cModel Technology
 Z0 d/home/lucachap58/Desktop/2425_ESE_TP_FPGA_FRICOT_CHAPART/HDMI_TX
 Ehdmi_generator
-Z1 w1734000829
+Z1 w1734354615
 Z2 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
 Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z4 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
-!i122 88
+!i122 97
 R0
 Z5 8hdmi_generator.vhd
 Z6 Fhdmi_generator.vhd
@@ -24,9 +24,9 @@ VWP@mk`Am]k09zW^z7GF9S1
 !s100 `LkTKTiT^I_=<@0O:D2P;0
 Z7 OV;C;2020.1;71
 32
-Z8 !s110 1734000834
+Z8 !s110 1734354619
 !i10b 1
-Z9 !s108 1734000834.000000
+Z9 !s108 1734354619.000000
 Z10 !s90 -reportprogress|300|hdmi_generator.vhd|
 Z11 !s107 hdmi_generator.vhd|
 !i113 1
@@ -36,11 +36,11 @@ R2
 R3
 R4
 Z13 DEx4 work 14 hdmi_generator 0 22 WP@mk`Am]k09zW^z7GF9S1
-!i122 88
-l55
-L36 68
-V=j=mQS;F==O?SOZ?9Q]_P1
-!s100 4oNWc87A2i^l2Hz2XY;zV3
+!i122 97
+l58
+L36 84
+V_kTNTfPcjl3;YG9LdcVX62
+!s100 b8@DZAfl@iR=K2Ve]z:NF2
 R7
 32
 R8
@@ -51,10 +51,10 @@ R11
 !i113 1
 R12
 Ehdmi_generator_tb
-Z14 w1733997168
+Z14 w1734353895
 R3
 R4
-!i122 89
+!i122 98
 R0
 Z15 8hdmi_generator_tb.vhd
 Z16 Fhdmi_generator_tb.vhd
@@ -77,11 +77,11 @@ R13
 R3
 R4
 Z19 DEx4 work 17 hdmi_generator_tb 0 22 <IZznT[<0m[ggYdmMNH983
-!i122 89
+!i122 98
 l34
 Z20 L7 76
-Z21 VN:HnM0iJc0l?mA51>QUe32
-Z22 !s100 oO<<Ge5FY@6YhJ:LLihNo0
+Z21 VTLSmE29QhE3VYjDG2E>Z]0
+Z22 !s100 BAQPkU[jAh1=LlbP^RdbD2
 R7
 32
 R8

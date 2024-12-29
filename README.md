@@ -31,9 +31,13 @@ Avec l'architecture suivante nous obtenons la simulation ci-dessous :
 
 On observe bien que lorsque le reset est à 1, o_hdmi_hs s'incrémente correctement. Lorsque le rest est à 0, o_hdmi_hs reste nul.
 
-Après considération, il s'avère que nos signaux de reset était invesré (low au lieu de high) après correction, on obtient le chronogramme suivant : 
+Pour la suite du programme nous avons choisi des h_res = 32 v_res = 24 dans le workbench en pour faciliter la visualisation en simulation.
+Après considération, il s'avère que nos signaux HS et VS étaientt invesré (low au lieu de high) après correction, on obtient le chronogramme suivant : 
 
-![1735392400737](https://github.com/user-attachments/assets/5ac26b3b-2292-4d88-9c74-5660491414c1)
+![image](https://github.com/user-attachments/assets/e5d50145-4151-44a5-923f-c569b4f8d8a3)
+
+On voit bien les différentes zones d'activités de nos pixels avec HS et VS, HS a une période d'activation plus courte pour HS ce qui est cohérent car le comptage se fait ligne par ligne.
+Notre signal enable est bien high quand HS et VS le sont.
 
 On peut alors observer l'image suivante qui a été transmise par HDMI : 
 

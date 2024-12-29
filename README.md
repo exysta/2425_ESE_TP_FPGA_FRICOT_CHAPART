@@ -30,3 +30,17 @@ Avec l'architecture suivante nous obtenons la simulation ci-dessous :
 ![image](https://github.com/user-attachments/assets/c73680b1-bccb-4e28-8318-2fc6dfcd92c5)
 
 On observe bien que lorsque le reset est à 1, o_hdmi_hs s'incrémente correctement. Lorsque le rest est à 0, o_hdmi_hs reste nul.
+
+Après considération, il s'avère que nos signaux de reset était invesré (low au lieu de high) après correction, on obtient le chronogramme suivant : 
+
+![1735392400737](https://github.com/user-attachments/assets/5ac26b3b-2292-4d88-9c74-5660491414c1)
+
+On peut alors observer l'image suivante qui a été transmise par HDMI : 
+
+![1735392400763](https://github.com/user-attachments/assets/302d1eeb-54ef-420c-a681-0fc4610edb68)
+
+Les dégradés de couleurs sont cohérents car nos deux masques deux couleurs vert et bleu s'incrément respectivement avec les valeurs des compteurs de pixels verticaux et horizontaux.
+
+### 2.2 Affichage Logo ENSEA
+
+

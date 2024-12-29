@@ -50,3 +50,6 @@ Les dégradés de couleurs sont cohérents car nos deux masques deux couleurs ve
 L'affichage du logo ENSEA par HDMI doit passer par l'utilisation d'une mémoire RAM dans laquelle sera stockée le logo.
 La taille de la mémoire stockant le logo sera de 95x95 et chaque pixel et codé en nuance de gris sur 8 bits.
 L'idée est changer la position du logo au cours du temps mais nous n'avons pas eu le temps d'implémenter cette feature.
+
+![1735392400722](https://github.com/user-attachments/assets/bddddc55-b768-4037-94da-35f29f55b788)
+
